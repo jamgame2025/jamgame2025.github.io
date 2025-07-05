@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const matches = document.getElementById('matches');
     let selectedCards = [];
 
-    const cards = ["TSSR", "TOSG", "TDOR", "HSSR", "TDOG", "OOTR", "TSOP", "HSSP", "TOTP", "TOTR", "HSTG", "OSSR"];
+    const cards = ["ODOG", "ODTG", "HSSP", "OSTP", "HOTR", "OOOR", "TOSP", "OSTG", "HOOR", "HDOR", "TSOP", "ODSG"];
     function createCardElement(cardName) {
       const card = document.createElement('div');
       card.classList.add('card');
