@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameBoard = document.getElementById('game-board');
     const matches = document.getElementById('matches');
     let selectedCards = [];
+    let matchedCards = [];
 
     const cards = ["ODOG", "ODTG", "HSSP", "OSTP", "HOTR", "OOOR", "TOSP", "OSTG", "HOOR", "HDOR", "TSOP", "ODSG"];
     function createCardElement(cardName) {
@@ -46,9 +47,16 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       if (isSet(0) && isSet(1) && isSet(2) && isSet(3)) {
-        matches.appendChild(createCardElement(card1.name));
-        matches.appendChild(createCardElement(card2.name));
-        matches.appendChild(createCardElement(card3.name));
+        // Check if we've already evaluated this one
+        cardNameArray = [card1.name, card2.name, card3.name];
+        cardNameArray.sort();
+        cardNameCat = cardNameArray[0] + cardNameArray[1] + cardNameArray[2];
+        if (!matchedCards.includes(cardNameCat)) {
+          matches.appendChild(createCardElement(card1.name));
+          matches.appendChild(createCardElement(card2.name));
+          matches.appendChild(createCardElement(card3.name));
+          matchedCards.push(cardNameCat);
+        }
       }
 
       setTimeout(() => {
