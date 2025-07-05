@@ -1,0 +1,26 @@
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 330px; /* Adjust as needed */
+}
+
+#matches {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 330px; /* Adjust as needed */
+}
+
+.card {
+    border: 2px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    height: 55px; /* Adjust as needed */
+}
+
+.card.selected {
+    border-color: blue;
+    background-color: #e0e0ff;
+}
