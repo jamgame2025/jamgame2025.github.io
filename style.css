@@ -1,11 +1,4 @@
-#game-board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    width: 330px; /* Adjust as needed */
-}
-
-#matches {
+#game-board, #matches {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
