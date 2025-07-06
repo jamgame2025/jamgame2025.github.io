@@ -29,6 +29,7 @@ function offsetDay(n) {
   window.location.search = params;
 }
 
+// Listeners for day manipulation
 document.getElementById('previous-day').addEventListener('click', () => {
   offsetDay(-1);
 });
