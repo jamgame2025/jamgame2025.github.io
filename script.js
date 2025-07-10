@@ -99,7 +99,7 @@ document.getElementById('start-button').addEventListener('click', () => {
       cardNameArray.sort();
       cardNameCat = cardNameArray[0] + cardNameArray[1] + cardNameArray[2];
 
-      if (matchedCards.includes(cardNameCat) {
+      if (matchedCards.includes(cardNameCat)) {
         // Handle an already found set.
         selectedCards.forEach(card => card.classList.add('alreadyFound'));
       } else {
