@@ -101,7 +101,7 @@ document.getElementById('start-button').addEventListener('click', () => {
 
       if (matchedCards.includes(cardNameCat)) {
         // Handle an already found set.
-        selectedCards.forEach(card => card.classList.add('alreadyFound'));
+        selectedCards.forEach(card => card.classList.add('alreadyfound'));
       } else {
         // Handle a new set.
         selectedCards.forEach(card => card.classList.add('match'));
