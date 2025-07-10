@@ -71,7 +71,7 @@ document.getElementById('start-button').addEventListener('click', () => {
 
   function toggleCardSelection(card) {
     if (selectedCards.includes(card)) {
-      card.classList.remove('selected');
+      selectedCards.forEach(card => card.classList.remove('selected', 'match', 'nonmatch', 'alreadyfound'));
       selectedCards = selectedCards.filter(c => c !== card);
     } else {
       if (selectedCards.length < 3) {
