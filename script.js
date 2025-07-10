@@ -93,12 +93,21 @@ document.getElementById('start-button').addEventListener('click', () => {
       return (prop1 == prop2 & prop1 == prop3) || (prop1 !== prop2 && prop1 !== prop3 && prop2 !== prop3);
     };
 
-    if (isSet(0) && isSet(1) && isSet(2) && isSet(3)) {
+    const isSet = isSet(0) && isSet(1) && isSet(2) && isSet(3);
+
+    if (isSet) {
       // Check if we've already evaluated this one
       cardNameArray = [card1.name, card2.name, card3.name];
       cardNameArray.sort();
       cardNameCat = cardNameArray[0] + cardNameArray[1] + cardNameArray[2];
-      if (!matchedCards.includes(cardNameCat)) {
+
+      if (matchedCards.includes(cardNameCat) {
+        // Handle an already found set.
+        selectedCards.forEach(card => card.classList.add('alreadyFound'));
+        break;
+      } else {
+        // Handle a new set.
+        selectedCards.forEach(card => card.classList.add('match'));
         matches.appendChild(createCardElement(card1.name, true));
         matches.appendChild(createCardElement(card2.name, true));
         matches.appendChild(createCardElement(card3.name, true));
@@ -122,6 +131,9 @@ document.getElementById('start-button').addEventListener('click', () => {
           gameBoard.appendChild(finished);
         }
       }
+    } else {
+      // Handle a non-set.
+      selectedCards.forEach(card => card.classList.add('nonmatch'));
     }
 
     setTimeout(() => {
