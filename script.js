@@ -50,6 +50,11 @@ document.getElementById('start-button').addEventListener('click', () => {
   let matchedCards = [];
   let startTime = 0;
 
+  const numMatchesElement = document.createElement('p');
+  numMatchesElement.textContent = '0 matches found';
+  gameBoard.appendChild(numMatchesElement);
+
+
   function createCardElement(cardName, matches) {
     const card = document.createElement('div');
     card.classList.add('card');
@@ -99,11 +104,13 @@ document.getElementById('start-button').addEventListener('click', () => {
       cardNameArray.sort();
       cardNameCat = cardNameArray[0] + cardNameArray[1] + cardNameArray[2];
       if (!matchedCards.includes(cardNameCat)) {
+        numMatches = matchedCards.length;
+        numMatchesElement.textContent = numMatches + ' matches found';
         matches.appendChild(createCardElement(card1.name, true));
         matches.appendChild(createCardElement(card2.name, true));
         matches.appendChild(createCardElement(card3.name, true));
         matchedCards.push(cardNameCat);
-        if (matchedCards.length === 6) {
+        if (numMatches === 6) {
           // You win!
           let endTime = Date.now();
           let elapsedTime = endTime - startTime;
