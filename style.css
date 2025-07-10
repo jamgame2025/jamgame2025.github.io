@@ -17,3 +17,16 @@
     border-color: blue;
     background-color: #e0e0ff;
 }
+
+.card.selected {
+    border-color: blue;
+    background-color: #e0e0ff;
+}
+
+.card.selected.match {
+    border-color: green;
+}
+
+.card.selected.nonmatch {
+    border-color: green;
+}
