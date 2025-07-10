@@ -99,12 +99,12 @@ document.getElementById('start-button').addEventListener('click', () => {
       cardNameArray.sort();
       cardNameCat = cardNameArray[0] + cardNameArray[1] + cardNameArray[2];
       if (!matchedCards.includes(cardNameCat)) {
-        numMatches = matchedCards.length;
-        numMatchesElement.textContent = numMatches + ' matches found';
         matches.appendChild(createCardElement(card1.name, true));
         matches.appendChild(createCardElement(card2.name, true));
         matches.appendChild(createCardElement(card3.name, true));
         matchedCards.push(cardNameCat);
+        numMatches = matchedCards.length;
+        numMatchesElement.textContent = numMatches + ' matches found';
         if (numMatches === 6) {
           // You win!
           let endTime = Date.now();
