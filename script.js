@@ -137,7 +137,7 @@ document.getElementById('start-button').addEventListener('click', () => {
     }
 
     setTimeout(() => {
-      selectedCards.forEach(card => card.classList.remove('selected'));
+      selectedCards.forEach(card => card.classList.remove('selected', 'match', 'nonmatch', 'alreadyfound'));
       selectedCards = [];
     }, 250);
   }
