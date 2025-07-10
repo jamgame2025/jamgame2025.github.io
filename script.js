@@ -50,11 +50,6 @@ document.getElementById('start-button').addEventListener('click', () => {
   let matchedCards = [];
   let startTime = 0;
 
-  const numMatchesElement = document.createElement('p');
-  numMatchesElement.textContent = '0 matches found';
-  gameBoard.appendChild(numMatchesElement);
-
-
   function createCardElement(cardName, matches) {
     const card = document.createElement('div');
     card.classList.add('card');
@@ -139,6 +134,11 @@ document.getElementById('start-button').addEventListener('click', () => {
     const cardElement = createCardElement(cardName, false);
     gameBoard.appendChild(cardElement);
   });
+
+  const numMatchesElement = document.createElement('p');
+  numMatchesElement.textContent = '0 matches found';
+  gameBoard.appendChild(numMatchesElement);
+
   // Start the timer
   startTime = Date.now();
 });
