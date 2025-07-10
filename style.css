@@ -28,9 +28,9 @@
 }
 
 .card.selected.alreadyfound {
-    border-color: red;
+    border-color: yellow;
 }
 
 .card.selected.nonmatch {
-    border-color: green;
+    border-color: red;
 }
