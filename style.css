@@ -27,6 +27,10 @@
     border-color: green;
 }
 
+.card.selected.alreadyfound {
+    border-color: yellow;
+}
+
 .card.selected.nonmatch {
     border-color: green;
 }
