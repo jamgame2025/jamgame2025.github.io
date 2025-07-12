@@ -1,16 +1,16 @@
 #game-board, #matches {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    width: 330px; /* Adjust as needed */
+    gap: 4px;
+    width: 360px; /* Adjust as needed */
 }
 
 .card {
-    border: 2px solid #ccc;
-    padding: 10px;
+    border: 2px solid white;
+    padding: 0px;
     text-align: center;
     cursor: pointer;
-    height: 55px; /* Adjust as needed */
+    height: 72px; /* Adjust as needed */
 }
 
 .card.selected {
