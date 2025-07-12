@@ -13,28 +13,38 @@
       d="m98.544521,10.311863l-87.830189,189.330815l88.201143,189.644391l88.942329,-190.362741l-89.313283,-188.612465z"
     />
     <pattern
-      id="pattern-stripe"
-      width="2"
+      id="red-pattern-stripe-fill"
+      width="48" 
       height="48"
       patternUnits="userSpaceOnUse"
+      patternTransform="rotate(90)"
     >
-      <rect width="2" height="14" fill="#fff" />
+      <rect width="48" height="48" fill="white"/>
+      <line x1="0" y1="0" x2="0" y2="48" stroke="#ff0101" stroke-width="28" />
     </pattern>
-    <mask id="mask-stripe">
-      <rect
-        x="0"
-        y="0"
-        width="200"
-        height="400"
-        fill="url(#pattern-stripe)"
-      />
-    </mask>
+    <pattern
+      id="green-pattern-stripe-fill"
+      width="48" 
+      height="48"
+      patternUnits="userSpaceOnUse"
+      patternTransform="rotate(90)"
+    >
+      <rect width="48" height="48" fill="white"/>
+      <line x1="0" y1="0" x2="0" y2="48" stroke="#008002" stroke-width="28" />
+    </pattern>
+    <pattern
+      id="purple-pattern-stripe-fill"
+      width="48" 
+      height="48"
+      patternUnits="userSpaceOnUse"
+      patternTransform="rotate(90)"
+    >
+      <rect width="48" height="48" fill="white"/>
+      <line x1="0" y1="0" x2="0" y2="48" stroke="#800080" stroke-width="28" />
+    </pattern>
   </defs>
   <rect x="2" y="2" width="596" height="396" rx="10" ry="10" fill="white" stroke="#333" stroke-width="4"/>
-  <use href="#oval" stroke="#800080" stroke-width="15" fill="none" transform="translate(10, 20) scale(0.9)"></use>
-  <use href="#oval" fill="#800080" mask="url(#mask-stripe)" transform="translate(10, 20) scale(0.9)"></use>
-  <use href="#oval" stroke="#800080" stroke-width="15" fill="none" transform="translate(210, 20) scale(0.9)"></use>
-  <use href="#oval" fill="#800080" mask="url(#mask-stripe)" transform="translate(210, 20) scale(0.9)"></use>
-  <use href="#oval" stroke="#800080" stroke-width="15" fill="none" transform="translate(410, 20) scale(0.9)"></use>
-  <use href="#oval" fill="#800080" mask="url(#mask-stripe)" transform="translate(410, 20) scale(0.9)"></use>
+  <use href="#oval" stroke="#800080" stroke-width="15" fill="url(#purple-pattern-stripe-fill)" transform="translate(10, 20) scale(0.9)"></use>
+  <use href="#oval" stroke="#800080" stroke-width="15" fill="url(#purple-pattern-stripe-fill)" transform="translate(210, 20) scale(0.9)"></use>
+  <use href="#oval" stroke="#800080" stroke-width="15" fill="url(#purple-pattern-stripe-fill)" transform="translate(410, 20) scale(0.9)"></use>
 </svg>
