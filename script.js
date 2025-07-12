@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   cards = boards[d];
   // Preload images
   cards.forEach(cardName => {
-    new Image().src = 'images/' + cardName + '.png';
+    new Image().src = 'svg/' + cardName + '.svg';
   });
 });
 
@@ -55,7 +55,7 @@ document.getElementById('start-button').addEventListener('click', () => {
     card.classList.add('card');
     card.name = cardName;
     const img = document.createElement('img');
-    img.src = 'images/' + cardName + '.png';
+    img.src = 'svg/' + cardName + '.svg';
     img.style.width = '100%';
     img.style.height = '100%';
     img.style.objectFit = 'contain';
