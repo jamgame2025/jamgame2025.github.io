@@ -126,6 +126,9 @@ document.getElementById('start-button').addEventListener('click', () => {
           const finished = document.createElement('p');
           finished.textContent = 'Finished: ' + elapsedString;
           gameBoard.appendChild(finished);
+          const goodjob = document.createElement('p');
+          goodjob.textContent = 'YOU DID A GOOD JOB!';
+          gameBoard.appendChild(goodjob);
         }
       }
     } else {
