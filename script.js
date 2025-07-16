@@ -122,7 +122,7 @@ document.getElementById('start-button').addEventListener('click', () => {
           let minutes = Math.floor(elapsedTime / 60);
           let seconds = elapsedTime % 60;
           const pad = (num, padding) => String(num).padStart(padding, '0');
-          let elapsedString = `${pad(hours, 2)}:${pad(minutes, 2)}:${pad(seconds, 2)}.${pad(ms, 4)}`;
+          let elapsedString = `${pad(hours, 2)}:${pad(minutes, 2)}:${pad(seconds, 2)}.${pad(ms, 3)}`;
           const finished = document.createElement('p');
           finished.textContent = 'Finished: ' + elapsedString;
           gameBoard.appendChild(finished);
