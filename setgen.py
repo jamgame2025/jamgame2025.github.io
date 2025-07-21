@@ -1,5 +1,6 @@
 import datetime
 import random
+import sys
 
 # Number of shapes (One, Two, tHree): OTH
 NUMBER = ("O", "T", "H")
@@ -39,48 +40,28 @@ def BoardMatches(board):
           matches += 1
   return matches
 
-boardsofsix = set()
-outputboards = [] 
-
 def Main():
-  boards = 100000
-  print("Generating %i boards..." % (boards,))
-  matchfreq = {}
-  for i in range(boards):
-    board = BoardMaker()
-    matches = BoardMatches(board)
-    matchfreq.setdefault(matches, 0)
-    matchfreq[matches] += 1
-
-    if matches == 6:
-      boardsort = " ".join(sorted(board))
-      if boardsort in boardsofsix:
-        print("Skipping duplicate")
-      boardsofsix.add(boardsort)
-      outputboards.append(board)
-
-      # remove
-      if len(outputboards) == 2000: break
-  for i, j in sorted(iter(matchfreq.items())):
-    print(i, j)
+  if len(sys.argv) == 2 and sys.argv[1] not in ("easy", "normal", "hard"):
+    print("Invalid mode, use 'easy', 'normal', or 'hard'.")
+    sys.exit(-1)
+  desiredmatches = 6 if len(sys.argv) != 2 or sys.argv[1] == "normal" else 3 if sys.argv[1] == "easy" else 9
+  uniqueboards = set()
   begofyear = datetime.date(2025, 1, 1).toordinal()
   n = 0
-  for board in outputboards:
-    d = datetime.date.fromordinal(begofyear+n).isoformat()
-    print("\"%s\": [%s]," % (d, ", ".join(("\"%s\"" % (c,) for c in board))))
-    n += 1
-  output = 0
-  #for board in outputboards:
-  #  print("<table>")
-  #  for c in board:
-  #    if output % 3 == 0:
-  #      print("<tr>")
-  #    print("<td><img id=\"%s\" src=\"images/%s.png\"/>" % (c,c,))
-  #    if output % 3 == 2:
-  #      print("</tr>")
-  #    output += 1
-  #  print("</table>")
-  #  #print("".join("<img id=\"%s\" src=\"images/%s.png\"/>" % (c,c,) for c in board))
+  print("boards = {")
+  while n < 1826: # 5 years including leap day for 2028
+    board = BoardMaker()
+    matches = BoardMatches(board)
+
+    if matches == desiredmatches:
+      boardsort = " ".join(sorted(board))
+      if boardsort in uniqueboards:
+        continue
+      uniqueboards.add(boardsort)
+      d = datetime.date.fromordinal(begofyear+n).isoformat()
+      print("  \"%s\": [%s]," % (d, ", ".join(("\"%s\"" % (c,) for c in board))))
+      n += 1
+  print("};")
 
 
 Main()
