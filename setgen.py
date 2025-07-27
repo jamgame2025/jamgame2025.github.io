@@ -14,10 +14,10 @@ COLOR = ("R", "G", "P")
 def CardMaker():
   return random.choice(NUMBER) + random.choice(SHAPE) + random.choice(SHADING) + random.choice(COLOR)
 
-def BoardMaker():
+def BoardMaker(c):
   cards = []
   uniquecards = set() 
-  for i in range(12):
+  for i in range(c):
     card = CardMaker()
     while card in uniquecards:
       card = CardMaker()
@@ -33,9 +33,9 @@ def Match(c1, c2, c3):
 
 def BoardMatches(board):
   matches = 0
-  for i in range(10):
-    for j in range(i+1, 11):
-      for k in range(j+1, 12):
+  for i in range(len(board)-2):
+    for j in range(i+1, len(board)-1):
+      for k in range(j+1, len(board)):
         if Match(board[i], board[j], board[k]):
           matches += 1
   return matches
@@ -44,13 +44,14 @@ def Main():
   if len(sys.argv) == 2 and sys.argv[1] not in ("easy", "normal", "hard"):
     print("Invalid mode, use 'easy', 'normal', or 'hard'.")
     sys.exit(-1)
+  boardsize = 12 if len(sys.argv) != 2 or sys.argv[1] == "normal" else 9 if sys.argv[1] == "easy" else 15
   desiredmatches = 6 if len(sys.argv) != 2 or sys.argv[1] == "normal" else 3 if sys.argv[1] == "easy" else 9
   uniqueboards = set()
   begofyear = datetime.date(2025, 1, 1).toordinal()
   n = 0
-  print("boards = {")
+  print("boards%s = {" % (sys.argv[1],))
   while n < 1826: # 5 years including leap day for 2028
-    board = BoardMaker()
+    board = BoardMaker(boardsize)
     matches = BoardMatches(board)
 
     if matches == desiredmatches:
