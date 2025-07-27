@@ -1,8 +1,15 @@
 let cards = [];
+let mode = 'normal';
 
 function setToday() {
   let params = new URLSearchParams(window.location.search);
   params.set('date', new Date().toISOString().slice(0,10));
+  window.location.search = params;
+}
+
+function setMode(m) {
+  let params = new URLSearchParams(window.location.search);
+  params.set('mode', m);
   window.location.search = params;
 }
 
@@ -12,9 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
     setToday();
     return;
   }
+  if (!params.has('mode')) {
+    setMode('normal');
+    return;
+  }
   const d = params.get('date');
   document.getElementById('todays-date').textContent = d;
-  cards = boards[d];
+  mode = params.get('mode');
+  document.getElementById('mode').textContent = 'Mode: ' + mode;
+  if (mode == 'easy') {
+    cards = boardseasy[d];
+  } else if (mode == 'normal') {
+    cards = boardsnormal[d];
+  } else if (mode == 'hard') {
+    cards = boardshard[d];
+  }
   // Preload images
   cards.forEach(cardName => {
     new Image().src = 'svg/' + cardName + '.svg';
@@ -40,6 +59,19 @@ document.getElementById('next-day').addEventListener('click', () => {
 
 document.getElementById('today-day').addEventListener('click', () => {
   setToday();
+});
+
+// Listeners for mode manipulation
+document.getElementById('mode-easy').addEventListener('click', () => {
+  setMode('easy');
+});
+
+document.getElementById('mode-normal').addEventListener('click', () => {
+  setMode('normal');
+});
+
+document.getElementById('mode-hard').addEventListener('click', () => {
+  setMode('hard');
 });
 
 document.getElementById('start-button').addEventListener('click', () => {
@@ -111,7 +143,7 @@ document.getElementById('start-button').addEventListener('click', () => {
         matchedCards.push(cardNameCat);
         numMatches = matchedCards.length;
         numMatchesElement.textContent = numMatches + ' matches found';
-        if (numMatches === 6) {
+        if (numMatches === (mode == 'normal' ? 6 : (mode == 'easy' ? 3 : 9))) {
           // You win!
           let endTime = Date.now();
           let elapsedTime = endTime - startTime;

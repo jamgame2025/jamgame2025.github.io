@@ -1,4 +1,4 @@
-boards = {
+boardseasy = {
   "2025-01-01": ["ODOG", "TOTG", "TDSG", "HDOG", "TOTP", "TSTG", "OSOP", "ODOP", "TSTR", "HDSG", "OSOG", "HOSG"],
   "2025-01-02": ["TDOR", "TOSP", "OOSG", "OOOP", "TSSG", "HDOR", "HDOG", "HOTR", "OSTG", "HSSP", "ODSP", "HOOG"],
   "2025-01-03": ["OSTP", "ODOR", "TSOR", "HSOR", "TDOG", "OSSG", "ODOG", "ODTG", "TOTP", "TSSG", "TOTG", "HDOR"],

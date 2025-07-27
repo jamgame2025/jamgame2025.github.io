@@ -1,4 +1,4 @@
-boards = {
+boardsnormal = {
   "2025-01-01": ["HOOP", "OSOR", "HSOP", "OOOR", "HSOR", "ODTR", "TDOG", "TOOP", "HDOP", "HSSG", "OOSP", "TDTP"],
   "2025-01-02": ["OSOG", "OSOP", "HDOG", "HOOG", "HDSR", "HDSP", "HSTP", "OSOR", "HOOP", "TOTP", "HDTP", "ODSP"],
   "2025-01-03": ["TOSG", "ODSG", "HSSR", "ODSP", "OOTR", "TDTR", "ODTG", "TOOP", "HSTR", "TSTP", "HOSR", "OSOG"],

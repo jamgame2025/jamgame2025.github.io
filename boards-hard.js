@@ -1,4 +1,4 @@
-boards = {
+boardshard = {
   "2025-01-01": ["TOTR", "TDTR", "HDSR", "HDTR", "TSOR", "OSSR", "HOSR", "OSOR", "HSSR", "OSTR", "ODOG", "TOSR"],
   "2025-01-02": ["HDTG", "OSSR", "TDOP", "TSSP", "OOSR", "TDSP", "ODSR", "HDTP", "HDOG", "ODOR", "HDSG", "OOTR"],
   "2025-01-03": ["HOTG", "HDOR", "TOOP", "OOSP", "HDSP", "OOSG", "HDSG", "HOTP", "HSOR", "HOTR", "HDSR", "OOSR"],
